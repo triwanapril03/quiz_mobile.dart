@@ -1,0 +1,84 @@
+import 'package : flutter/material.dart';
+class HalamanPertama extends StatelessWidget {
+
+@overide
+Widget build(BuildContext context) {
+
+return scaffold(
+appBar : AppBar(
+title : Text ('Halaman Pertama') ,
+) ,
+body : Center(
+child : ListView(
+children : <Widget>)[
+
+RaisedButton(
+child : Text ('Pindah Halaman Kedua') ,
+onPressed : () {
+Navigator.pushName(Context , HalamanKedua.routerName) ;
+} ,
+),
+RaisedButton(
+child : Text ('Pindah Halaman Ketiga') ,
+onPress : () {
+Nvigator.pushReplacementNamed(context ,HalamanKetiga.routeName) ;
+},
+),
+],
+),
+),
+);
+}
+}
+class HalamanKedua extends StatelessWdidget {
+
+static const String routeName = "/halamanKedua";
+@override
+Widget build (BuildContext context ) {
+
+return scaffold(
+appBar : AppBar(
+title: Text("Halaman Kedua"),
+),
+body :Center(
+child : RaisedButton(
+child: Text('Kembali'),
+onPressed: () [
+
+Nvigator.pop(context);
+],
+),
+),
+);
+}
+}
+class HalamanKetiga extends StatelessWdidget {
+
+static const String routeName = "/halamanKetiga";
+@override
+Widget build (BuildContext context ) {
+
+return scaffold(
+appBar : AppBar(
+title: Text("Halaman Ketiga"),
+),
+body :Center(
+child: Text('Halaman Ketiga'),
+),
+);
+}
+}
+void main () {
+
+runApp(MateriApp
+      debugShowCheckedModeBanner: false,
+      title: 'Routing Navigation',
+      initialRoute: '/',
+      routes: {
+
+      '/': (context) => HalamanPertama(),
+      HalamanKedua.routeName : (context) => HalamanKedua(),
+      HalamanKetiga.routeName : (context) => HalamanKetiga(),
+      },
+      ));
+}
